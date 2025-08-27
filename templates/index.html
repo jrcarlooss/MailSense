@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MailSense - Classificador de E-mails</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>MailSense</h1>
+        <p>Automatize a classificação e resposta de e-mails com IA.</p>
+
+        <form id="email-form">
+            <textarea id="email-text" placeholder="Cole o conteúdo do e-mail aqui..." rows="10" required></textarea>
+            <button type="submit">Classificar e Sugerir Resposta</button>
+        </form>
+        
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Processando...</p>
+        </div>
+
+        <div id="results" class="hidden">
+            <h2>Resultados</h2>
+            <div class="result-box">
+                <h3>Categoria:</h3>
+                <p id="categoria"></p>
+            </div>
+            <div class="result-box">
+                <h3>Resposta Sugerida:</h3>
+                <p id="resposta"></p>
+            </div>
+        </div>
+        
+        <div id="error" class="hidden">
+            <p>Ocorreu um erro ao processar o e-mail. Tente novamente.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('email-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const emailText = document.getElementById('email-text').value;
+            const resultsDiv = document.getElementById('results');
+            const loadingDiv = document.getElementById('loading');
+            const errorDiv = document.getElementById('error');
+            
+            // Oculta resultados e erros anteriores
+            resultsDiv.classList.add('hidden');
+            errorDiv.classList.add('hidden');
+            loadingDiv.classList.remove('hidden');
+
+            try {
+                const response = await fetch('/processar_email', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email_text: emailText }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    document.getElementById('categoria').textContent = data.categoria;
+                    document.getElementById('resposta').textContent = data.resposta;
+                    resultsDiv.classList.remove('hidden');
+                } else {
+                    errorDiv.classList.remove('hidden');
+                    console.error('Erro do servidor:', data.error);
+                }
+            } catch (e) {
+                errorDiv.classList.remove('hidden');
+                console.error('Erro de conexão:', e);
+            } finally {
+                loadingDiv.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
