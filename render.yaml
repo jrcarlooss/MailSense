@@ -3,8 +3,14 @@ services:
     name: mailsense
     env: python
     plan: free
-    buildCommand: "pip install --upgrade pip && pip install --prefer-binary -r requirements.txt"
-    startCommand: "streamlit run app.py --server.port $PORT --server.address 0.0.0.0"
+    buildCommand: >
+      pip install --upgrade pip &&
+      pip install --only-binary=:all: tokenizers safetensors &&
+      pip install --prefer-binary -r requirements.txt
+    startCommand: "python app.py"
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
+      - key: OPENAI_API_KEY
+        sync: false
+
