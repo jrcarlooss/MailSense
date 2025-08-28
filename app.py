@@ -7,7 +7,12 @@ import emoji
 import openai
 
 # ----------------------------------------------------
-# 1. Carregar Modelos de IA
+# 1. Inicializar o aplicativo Flask
+# ----------------------------------------------------
+app = Flask(__name__)
+
+# ----------------------------------------------------
+# 2. Carregar Modelos de IA
 # ----------------------------------------------------
 try:
     # Modelo de Análise de Sentimento em português
@@ -24,7 +29,7 @@ except Exception as e:
     intent_classifier = None
 
 # ----------------------------------------------------
-# 2. Listas e Parâmetros de Filtro
+# 3. Listas e Parâmetros de Filtro
 # ----------------------------------------------------
 BLACKLIST_OFENSAS = ["burro", "idiota", "otário", "imbecil"]
 BLACKLIST_SPAM = ["promoção imperdível", "ganhe dinheiro", "clique aqui", "oferta exclusiva"]
@@ -32,7 +37,7 @@ INTENCOES = ['problema técnico', 'reclamação', 'dúvida', 'solicitação', 'e
 INTENCOES_IMPRODUTIVAS = ['elogio', 'agradecimento', 'saudação']
 
 # ----------------------------------------------------
-# 3. Funções Auxiliares
+# 4. Funções Auxiliares
 # ----------------------------------------------------
 def preprocessar_texto(texto):
     """Limpa e normaliza o texto para análise."""
@@ -48,7 +53,6 @@ def contem_palavras_chave(texto, palavras_chave):
 # ------------------------------
 # Templates de respostas
 # ------------------------------
-# NOVO: Templates aprimorados, com mais opções
 RESPOSTA_TEMPLATES = {
     'problema técnico': "Olá! Percebemos que você tem um problema técnico. Nossa equipe irá analisar e responder em breve.",
     'reclamação': "Obrigado pelo seu contato. Recebemos sua reclamação e vamos verificar imediatamente.",
@@ -61,7 +65,7 @@ RESPOSTA_TEMPLATES = {
 }
 
 # ----------------------------------------------------
-# 4. Nova Função: IA ou Template
+# 5. Nova Função: IA ou Template
 # ----------------------------------------------------
 def gerar_resposta_ia_ou_template(texto_email, intencao_principal, intencoes_relevantes):
     """
@@ -111,9 +115,8 @@ def gerar_resposta_ia_ou_template(texto_email, intencao_principal, intencoes_rel
 
 
 # ----------------------------------------------------
-# 5. Configuração Flask
+# 6. Rotas da Aplicação
 # ----------------------------------------------------
-
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -175,7 +178,7 @@ def processar_email():
         return jsonify({'error': f'Ocorreu um erro no processamento: {e}'}), 500
 
 # ----------------------------------------------------
-# 6. Executar Servidor
+# 7. Executar Servidor
 # ----------------------------------------------------
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
