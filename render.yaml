@@ -1,6 +1,10 @@
 services:
   - type: web
-    name: meu-app
+    name: mailsense
     env: python
-    buildCommand: pip install --upgrade pip && pip install --prefer-binary -r requirements.txt
-    startCommand: gunicorn app:app
+    plan: free
+    buildCommand: "pip install --upgrade pip && pip install --prefer-binary -r requirements.txt"
+    startCommand: "streamlit run app.py --server.port $PORT --server.address 0.0.0.0"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
