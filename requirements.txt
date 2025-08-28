@@ -1,18 +1,3 @@
-# Core
-streamlit==1.38.0
-torch==2.8.0
-transformers==4.41.2
-tokenizers==0.19.1
-pysentimiento==0.7.3
-
-# Utilitários
-numpy==2.3.2
-regex==2025.7.34
-tqdm==4.67.1
-requests==2.32.3
-PyYAML==6.0.2
-
-# Flask (se usar API junto com Streamlit)
 Flask==3.1.2
 Werkzeug==3.1.3
 Jinja2==3.1.6
@@ -20,24 +5,32 @@ MarkupSafe==3.0.2
 itsdangerous==2.2.0
 click==8.2.1
 
-# Dependências gerais
+torch==2.8.0
+transformers==4.41.2
+tokenizers==0.19.1
+safetensors==0.6.2
+pysentimiento==0.7.3
+
+numpy==2.3.2
+regex==2025.7.34
+tqdm==4.67.1
+requests==2.32.3
+PyYAML==6.0.2
+emoji==2.14.0
+
 typing_extensions==4.15.0
 packaging==25.0
 filelock==3.19.1
 fsspec==2025.7.0
 huggingface-hub==0.34.4
-safetensors==0.6.2
 networkx==3.5
 sympy==1.14.0
 mpmath==1.3.0
 
-# Compatibilidade
 idna==3.10
 charset-normalizer==3.4.3
 urllib3==2.5.0
 certifi==2025.8.3
 colorama==0.4.6
-distlib==0.4.0
-platformdirs==4.4.0
-virtualenv==20.34.0
-blinker==1.9.0
+
+openai==1.50.2
