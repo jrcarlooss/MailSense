@@ -7,9 +7,10 @@ services:
       pip install --upgrade pip &&
       pip install --only-binary=:all: tokenizers==0.19.1 safetensors &&
       pip install -r requirements.txt
-    startCommand: python app.py
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
       - key: OPENAI_API_KEY
         sync: false
+
