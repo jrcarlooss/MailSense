@@ -21,7 +21,6 @@ click==8.2.1
 
 # Dependências gerais
 typing_extensions==4.15.0
-packaging==25.0
 filelock==3.19.1
 fsspec==2025.7.0
 huggingface-hub==0.34.4
@@ -39,3 +38,4 @@ distlib==0.4.0
 platformdirs==4.4.0
 virtualenv==20.34.0
 blinker==1.9.0
+
