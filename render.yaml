@@ -7,9 +7,9 @@ services:
       pip install --upgrade pip &&
       pip install --only-binary=:all: tokenizers safetensors &&
       pip install -r requirements.txt
-    startCommand: "python app.py"
+    startCommand: python app.py
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
       - key: OPENAI_API_KEY
-        sync: false   # Adicione a chave pelo painel do Render, não no código
+        sync: false
