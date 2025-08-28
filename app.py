@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, request, jsonify
 from pysentimiento import create_analyzer
 from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
@@ -112,7 +113,6 @@ def gerar_resposta_ia_ou_template(texto_email, intencao_principal, intencoes_rel
 # ----------------------------------------------------
 # 5. Configuração Flask
 # ----------------------------------------------------
-app = Flask(__name__)
 
 @app.route('/')
 def home():
@@ -178,4 +178,5 @@ def processar_email():
 # 6. Executar Servidor
 # ----------------------------------------------------
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000, debug=False)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port, debug=False)
