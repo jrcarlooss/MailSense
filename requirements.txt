@@ -1,11 +1,11 @@
 Flask==3.1.2
-requests
 pysentimiento
 transformers
 torch
 emoji
 openai
 gunicorn==21.2.0
+
 
 
 
