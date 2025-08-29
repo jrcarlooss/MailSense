@@ -10,13 +10,14 @@ services:
     startCommand: >
       gunicorn app:app \
       --bind 0.0.0.0:$PORT \
-      --workers 3 \
-      --threads 2 \
-      --timeout 120 \
-      --preload
+      --workers 1 \
+      --threads 1 \
+      --timeout 120
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
       - key: OPENAI_API_KEY
         sync: false
+
+
 
