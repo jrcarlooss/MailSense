@@ -5,7 +5,8 @@ transformers
 torch
 emoji
 openai
-streamlit==1.38.0   # se você estiver usando a interface Streamlit
 gunicorn==21.2.0
+
+
 
 
