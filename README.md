@@ -45,4 +45,5 @@ Para rodar o projeto na sua máquina, siga os passos abaixo:
 ```bash
 git clone [https://github.com/jrcarlooss/MailSense.git](https://github.com/jrcarlooss/MailSense.git)
 cd MailSense
-Aviso de Direitos Autorais e Uso
+
+## Aviso de Direitos Autorais e Uso
