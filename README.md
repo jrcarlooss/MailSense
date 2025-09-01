@@ -34,16 +34,79 @@ Este projeto foi desenvolvido utilizando as seguintes ferramentas e bibliotecas:
 
 ---
 
-## 💻 Como Executar o Projeto Localmente
+# MailSense
 
-Para rodar o projeto na sua máquina, siga os passos abaixo:
+Guia passo a passo para executar o projeto **MailSense** localmente.
 
-### Pré-requisitos
-- **Python 3.x** e **pip** instalados.
+---
 
-### 1. Clonar o Repositório
-```bash
-git clone [https://github.com/jrcarlooss/MailSense.git](https://github.com/jrcarlooss/MailSense.git)
+## 📌 Pré-requisitos
+Antes de começar, certifique-se de que possui instalado na sua máquina:
+- Python 3.x
+- pip
+
+---
+
+## 📥 1. Clonar o Repositório
+Abra o terminal (Prompt de Comando, PowerShell, Git Bash, Terminal, etc.) e execute:
+
+git clone <URL_DO_REPOSITORIO>  
 cd MailSense
+
+---
+
+## ⚙️ 2. Configurar o Ambiente Virtual
+É recomendado usar um ambiente virtual para isolar as dependências do projeto. Isso evita conflitos com outras bibliotecas do sistema.
+
+Crie o ambiente virtual:
+
+python -m venv venv
+
+Ative o ambiente virtual:
+
+- **Windows**:  
+  venv\Scripts\activate  
+
+- **macOS e Linux**:  
+  source venv/bin/activate  
+
+---
+
+## 📦 3. Instalar as Dependências
+Com o ambiente virtual ativado, instale as bibliotecas listadas no arquivo requirements.txt:
+
+pip install -r requirements.txt
+
+---
+
+## 🔑 4. Configurar a Chave da API da OpenAI (Opcional)
+Se desejar usar a funcionalidade de geração de respostas da OpenAI:
+
+1. Abra o arquivo `app.py`.  
+2. Localize a linha:  
+   openai.api_key = "SUA_CHAVE_AQUI"  
+3. Substitua `"SUA_CHAVE_AQUI"` pela sua chave de API real.  
+
+---
+
+## ▶️ 5. Executar o Servidor
+Certifique-se de estar no diretório MailSense e com o ambiente virtual ativado.  
+Inicie o servidor Flask com:
+
+python app.py
+
+Se tudo estiver correto, aparecerá no terminal:
+
+ * Running on http://127.0.0.1:5000
+
+---
+
+## 🌐 6. Acessar a Aplicação
+Abra o navegador e acesse:
+
+http://127.0.0.1:5000
+
+A interface da aplicação será carregada e você poderá usá-la normalmente.
+
 
 ## Aviso de Direitos Autorais e Uso
