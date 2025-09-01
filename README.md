@@ -109,13 +109,15 @@ http://127.0.0.1:5000
 A interface da aplicação será carregada e você poderá usá-la normalmente.
 
 ## 📂 Versão Completa do Projeto (Arquivo ZIP)
-Além da versão disponível no **GitHub** e hospedada no **Render**, também estou disponibilizando uma pasta **compactada (.zip)** contendo o projeto **completo para uso local**.  
 
-> ⚠️ Importante:  
+Além da versão disponível no **GitHub** e hospedada no **Render**, também estou disponibilizando uma pasta **compactada (.zip)** contendo o projeto **completo para uso local**.
+
+> ⚠️ **Importante:**  
 > A versão que roda no Render foi ajustada com menos funcionalidades devido às limitações do plano gratuito.  
-> Já o arquivo ZIP contém **todas as funcionalidades originais do MailSense**, conforme utilizado em ambiente local.  
+> Já o arquivo ZIP contém **todas as funcionalidades originais do MailSense**, conforme utilizado em ambiente local.
 
-Basta baixar, extrair a pasta e seguir o passo a passo acima para executar a versão completa.
+🔗 [Clique aqui para baixar a versão completa (Mega.nz)](https://mega.nz/file/bhhUVYSZ#nDevw4rwvDS6ann5tHEoKfXvEAoniQCda7foS-0k2Q8)
+
 
 
 ## Aviso de Direitos Autorais e Uso
